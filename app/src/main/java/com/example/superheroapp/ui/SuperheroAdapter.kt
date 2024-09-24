@@ -5,12 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
 import com.example.superheroapp.data.models.Superhero
+import javax.inject.Inject
 
-class SuperheroAdapter(private val superheroes: List<Superhero>) :
-    RecyclerView.Adapter<SuperheroAdapter.SuperheroViewHolder>() {
+class SuperheroAdapter @Inject constructor() :
+    ListAdapter<Superhero, SuperheroAdapter.SuperheroViewHolder>(SuperheroDiffCallback()) {
 
     class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val superheroImage: ImageView = view.findViewById(R.id.superhero_image)
@@ -25,13 +27,9 @@ class SuperheroAdapter(private val superheroes: List<Superhero>) :
     }
 
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
-        val superhero = superheroes[position]
+        val superhero = getItem(position)
         holder.superheroName.text = superhero.name
         holder.alterEgoName.text = superhero.alterName
         holder.superheroImage.setImageResource(superhero.photo)
-    }
-
-    override fun getItemCount(): Int {
-        return superheroes.size
     }
 }

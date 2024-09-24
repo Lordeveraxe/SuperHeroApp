@@ -1,37 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/superhero_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/default_superhero"
-        android:contentDescription="@string/superhero_image"
-        android:layout_marginEnd="16dp" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/superhero_name"
+        <ImageView
+            android:id="@+id/superhero_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/default_superhero"
+            android:contentDescription="@string/superhero_image"
+            android:layout_marginEnd="16dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/superhero_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/superhero_name"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/alter_ego_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alter_ego_name"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_enemies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/superhero_name"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/alter_ego_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/alter_ego_name"
-            android:textSize="14sp" />
+            android:text="@string/enemies" />
 
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>
