@@ -1,16 +1,22 @@
 package com.example.superheroapp
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.superheroapp.data.generateSuperheroes
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val superheroButton = findViewById<Button>(R.id.btn_superheroes)
+
+        superheroButton.setOnClickListener {
+            // Iniciar la actividad que muestra el RecyclerView
+            val intent = Intent(this, SuperheroListActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

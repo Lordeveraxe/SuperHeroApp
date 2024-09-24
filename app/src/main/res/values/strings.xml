@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Super Hero App</string>
+    <string name="superhero_image">super hero image</string>
+    <string name="alter_ego_name">Alter Ego Name</string>
+    <string name="superhero_name">Superhero Name</string>
+    <string name="super_heroes">Super Heroes</string>
 </resources>
