@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.superheroapp.ui.SuperheroAdapter
+import com.example.superheroapp.ui.superhero.SuperheroAdapter
 import com.example.superheroapp.ui.superhero.SuperheroViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

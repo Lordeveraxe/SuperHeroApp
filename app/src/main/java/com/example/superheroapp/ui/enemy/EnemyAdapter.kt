@@ -9,13 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
 import com.example.superheroapp.data.models.Enemy
 
-class EnemyAdapter(private val enemies: List<Enemy>) :
-    RecyclerView.Adapter<EnemyAdapter.EnemyViewHolder>() {
-
-    class EnemyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val enemyPhoto: ImageView = itemView.findViewById(R.id.enemy_photo)
-        val enemyName: TextView = itemView.findViewById(R.id.enemy_name)
-    }
+class EnemyAdapter(private val enemies: ArrayList<Enemy>) :
+    RecyclerView.Adapter<EnemyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EnemyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.enemy_item, parent, false)
