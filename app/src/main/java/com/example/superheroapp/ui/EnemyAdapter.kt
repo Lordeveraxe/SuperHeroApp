@@ -1,4 +1,4 @@
-package com.example.superheroapp.data.ui
+package com.example.superheroapp.ui
 
 import android.view.LayoutInflater
 import android.view.View
