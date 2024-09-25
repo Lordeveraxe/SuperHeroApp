@@ -11,17 +11,25 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
 import com.example.superheroapp.SuperheroDetailsActivity
+import com.example.superheroapp.data.models.Enemy
 import com.example.superheroapp.data.models.Superhero
 
 class SuperheroAdapter :
     ListAdapter<Superhero, SuperheroAdapter.SuperheroViewHolder>(SuperheroDiffCallback()) {
 
+
+    private var enemyList: List<Enemy> = emptyList()
     class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val superheroImage: ImageView = view.findViewById(R.id.superhero_image)
         val superheroName: TextView = view.findViewById(R.id.superhero_name)
         val alterEgoName: TextView = view.findViewById(R.id.alter_ego_name)
         val btnEnemies: Button = view.findViewById(R.id.btn_enemies)
         val btnDetails: Button = view.findViewById(R.id.btn_details)
+    }
+
+    fun submitList(superheroes: List<Superhero>, enemies: List<Enemy>) {
+        this.enemyList = enemies  // Actualizar la lista de enemigos
+        super.submitList(superheroes)  // Llamar al método original para actualizar la lista de superhéroes
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
@@ -44,9 +52,16 @@ class SuperheroAdapter :
             context.startActivity(intent)
         }
 
-        // Botón de "Enemigos" (sin funcionalidad por ahora)
         holder.btnEnemies.setOnClickListener {
-            // Lógica futura para el botón de enemigos
+            val context = holder.itemView.context
+            val intent = Intent(context, EnemyListActivity::class.java)
+
+            val selectedEnemies = superhero.enemies.map { enemyId ->
+                enemyList.find { it.id == enemyId }
+            }.filterNotNull()
+
+            intent.putExtra("enemies", ArrayList(selectedEnemies))
+            context.startActivity(intent)
         }
     }
 }

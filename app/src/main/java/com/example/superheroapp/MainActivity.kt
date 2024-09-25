@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.data.generateSuperheroes
+import com.example.superheroapp.data.generateEnemies
 import com.example.superheroapp.ui.SuperheroAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -23,9 +24,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val superheroes = generateSuperheroes()
+        val enemies = generateEnemies()
 
         recyclerView.adapter = superheroAdapter
 
-        superheroAdapter.submitList(superheroes)
+        superheroAdapter.submitList(superheroes, enemies)
     }
 }
