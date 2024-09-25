@@ -12,4 +12,5 @@ class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val superheroName: TextView = view.findViewById(R.id.superhero_name)
     val alterEgoName: TextView = view.findViewById(R.id.alter_ego_name)
     val btnDetails: Button = view.findViewById(R.id.btn_details)
+    val btnEnemies: Button = view.findViewById(R.id.btn_enemies)
 }

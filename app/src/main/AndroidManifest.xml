@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SuperHeroApp"
         tools:targetApi="31">
         <activity android:name=".SuperheroDetailsActivity" />
-        <activity android:name=".ui.EnemyListActivity" />
+        <activity android:name=".EnemyListActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,4 +1,4 @@
-package com.example.superheroapp.ui
+package com.example.superheroapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
 import com.example.superheroapp.data.models.Enemy
+import com.example.superheroapp.ui.enemy.EnemyAdapter
 
 class EnemyListActivity : AppCompatActivity() {
 

@@ -1,7 +1,7 @@
 package com.example.superheroapp.di
 
 import com.example.superheroapp.data.models.Superhero
-import com.example.superheroapp.ui.SuperheroAdapter
+import com.example.superheroapp.ui.superhero.SuperheroAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
