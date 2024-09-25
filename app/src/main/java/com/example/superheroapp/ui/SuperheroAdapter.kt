@@ -14,16 +14,8 @@ import com.example.superheroapp.SuperheroDetailsActivity
 import com.example.superheroapp.data.models.Superhero
 
 class SuperheroAdapter :
-    ListAdapter<Superhero, SuperheroAdapter.SuperheroViewHolder>(SuperheroDiffCallback()) {
-
-    class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val superheroImage: ImageView = view.findViewById(R.id.superhero_image)
-        val superheroName: TextView = view.findViewById(R.id.superhero_name)
-        val alterEgoName: TextView = view.findViewById(R.id.alter_ego_name)
-        val btnEnemies: Button = view.findViewById(R.id.btn_enemies)
-        val btnDetails: Button = view.findViewById(R.id.btn_details)
-    }
-
+    ListAdapter<Superhero, SuperheroViewHolder>(SuperheroDiffCallback()) {
+        
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperheroViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_superhero, parent, false)
