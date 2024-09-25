@@ -1,5 +1,6 @@
 package com.example.superheroapp.di
 
+import com.example.superheroapp.data.models.Superhero
 import com.example.superheroapp.ui.SuperheroAdapter
 import dagger.Module
 import dagger.Provides
@@ -14,6 +15,8 @@ object SuperheroModule {
     @Singleton
     @Provides
     fun provideSuperheroAdapter(): SuperheroAdapter {
-        return SuperheroAdapter()
+        return SuperheroAdapter { superhero: Superhero ->
+            println("Clicked on: ${superhero.name}")
+        }
     }
 }
