@@ -4,5 +4,13 @@
     <string name="alter_ego_name">Alter Ego Name</string>
     <string name="superhero_name">Superhero Name</string>
     <string name="super_heroes">Super Heroes</string>
-    <string name="enemies">Enemigos</string>
+    <string name="enemies">Enemies</string>
+    <string name="powers">Powers:</string>
+    <string name="location_1_n_location_2">- Location 1\n- Location 2</string>
+    <string name="locations">Locations:</string>
+    <string name="friend_1_n_friend_2">- Friend 1\n- Friend 2</string>
+    <string name="friends">Friends:</string>
+    <string name="enemy_name">Enemy Name</string>
+    <string name="main_enemy">Main Enemy:</string>
+    <string name="power_1_n_power_2_n_power_3">- Power 1\n- Power 2\n- Power 3</string>
 </resources>
