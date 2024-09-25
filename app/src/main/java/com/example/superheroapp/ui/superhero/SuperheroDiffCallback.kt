@@ -1,4 +1,4 @@
-package com.example.superheroapp.ui
+package com.example.superheroapp.ui.superhero
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.superheroapp.data.models.Superhero
