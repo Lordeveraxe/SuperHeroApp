@@ -10,14 +10,12 @@ import com.example.superheroapp.ui.superhero.SuperheroViewModel
 
 class SuperheroDetailsActivity : AppCompatActivity() {
 
-    // Crear una instancia del ViewModel
     private val viewModel: SuperheroViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_superhero_details)
 
-        // Referencias a las vistas
         val imageView = findViewById<ImageView>(R.id.superhero_detail_image)
         val nameTextView = findViewById<TextView>(R.id.superhero_detail_name)
         val alterEgoTextView = findViewById<TextView>(R.id.superhero_detail_alter_ego)
@@ -26,10 +24,8 @@ class SuperheroDetailsActivity : AppCompatActivity() {
         val friendsTextView = findViewById<TextView>(R.id.superhero_detail_friends)
         val locationsTextView = findViewById<TextView>(R.id.superhero_detail_locations)
 
-        // Recibir el superhéroe del intent
         val superhero = intent.getParcelableExtra<Superhero>("superhero")
 
-        // Observar los cambios en el estado del superhéroe y actualizar la UI
         viewModel.superheroState.observe(this) { state ->
             state.superhero?.let { it ->
                 imageView.setImageResource(it.photo)
@@ -42,7 +38,6 @@ class SuperheroDetailsActivity : AppCompatActivity() {
             }
         }
 
-        // Cargar los detalles del superhéroe
         superhero?.let { viewModel.loadSuperhero(it) }
     }
 }

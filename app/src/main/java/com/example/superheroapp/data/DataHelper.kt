@@ -13,7 +13,6 @@ fun generateSuperheroes(): List<Superhero> {
     val locations = generateLocations()
     val powers = generatePowers()
 
-    // Dummy data for superheroes
     val superheroNames = listOf("Superman", "Batman", "Wonder Woman", "Flash", "Aquaman", "Spider-Man", "Iron Man", "Captain America", "Hulk", "Thor")
     val alterNames = listOf("Clark Kent", "Bruce Wayne", "Diana Prince", "Barry Allen", "Arthur Curry", "Peter Parker", "Tony Stark", "Steve Rogers", "Bruce Banner", "Thor Odinson")
 
@@ -22,7 +21,7 @@ fun generateSuperheroes(): List<Superhero> {
             id = i,
             name = superheroNames[i % superheroNames.size],
             alterName = alterNames[i % alterNames.size],
-            photo = R.drawable.default_superhero, // Placeholder drawable resource
+            photo = R.drawable.default_superhero,
             powers = powers.shuffled().take(Random.nextInt(1, 6)).map { it.id },
             friends = (0..Random.nextInt(0, 5)).map { Random.nextInt(0, 20) }.distinct().take(Random.nextInt(1, 6)),
             mainEnemy = enemies.random(),

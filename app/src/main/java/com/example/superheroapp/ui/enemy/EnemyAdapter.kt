@@ -1,10 +1,7 @@
 package com.example.superheroapp.ui.enemy
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
 import com.example.superheroapp.data.models.Enemy
@@ -13,7 +10,8 @@ class EnemyAdapter(private val enemies: ArrayList<Enemy>) :
     RecyclerView.Adapter<EnemyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EnemyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.enemy_item, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.enemy_item, parent, false)
         return EnemyViewHolder(view)
     }
 

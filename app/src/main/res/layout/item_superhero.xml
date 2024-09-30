@@ -37,20 +37,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Superhero Name"
+                    android:text="@string/superhero_name"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/alter_ego_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Alter Ego Name"
+                    android:text="@string/alter_ego_name"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
         <!-- Botones de acción -->
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -60,14 +61,14 @@
                 android:id="@+id/btn_enemies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enemigos"
-                android:layout_marginEnd="8dp"/>
+                android:text="@string/enemies"
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btn_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Detalles" />
+                android:text="@string/details" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
