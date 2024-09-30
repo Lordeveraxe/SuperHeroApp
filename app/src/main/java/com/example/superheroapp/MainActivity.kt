@@ -23,25 +23,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Configurar RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Configurar el adaptador con el manejo de clics en "Detalles"
-        superheroAdapter = SuperheroAdapter { superhero ->
-            val intent = Intent(this, SuperheroDetailsActivity::class.java)
-            intent.putExtra("superhero", superhero)
-            startActivity(intent)
-        }
+        val superheroAdapter = SuperheroAdapter(
+            onDetailsClick = { superhero ->
+                val intent = Intent(this, SuperheroDetailsActivity::class.java)
+                intent.putExtra("superhero", superhero)
+                startActivity(intent)
+            },
+            onEnemiesClick = { enemies ->
+                val intent = Intent(this, EnemyListActivity::class.java)
+                intent.putExtra("enemies", ArrayList(enemies))
+                startActivity(intent)
+            }
+        )
 
         recyclerView.adapter = superheroAdapter
 
-        // Observar los datos desde el ViewModel
         viewModel.superheroes.observe(this) { superheroes ->
-            superheroAdapter.submitList(superheroes)
+            viewModel.enemies.observe(this) { enemies ->
+                superheroAdapter.submitList(superheroes, enemies)
+            }
         }
 
-        // Cargar los superhéroes
         viewModel.loadSuperheroes()
+        viewModel.loadEnemies()
     }
 }

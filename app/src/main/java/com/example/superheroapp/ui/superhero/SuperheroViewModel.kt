@@ -3,8 +3,10 @@ package com.example.superheroapp.ui.superhero
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.superheroapp.data.generateEnemies
 import com.example.superheroapp.data.generateLocations
 import com.example.superheroapp.data.generateSuperheroes
+import com.example.superheroapp.data.models.Enemy
 import com.example.superheroapp.data.models.Superhero
 
 class SuperheroViewModel : ViewModel() {
@@ -12,14 +14,16 @@ class SuperheroViewModel : ViewModel() {
     private val _superheroes = MutableLiveData<List<Superhero>>()
     val superheroes: LiveData<List<Superhero>> = _superheroes
 
-    // Estado del superhéroe
+    private val _enemies = MutableLiveData<List<Enemy>>()
+    val enemies: LiveData<List<Enemy>> = _enemies
+
     private val _superheroState = MutableLiveData<SuperheroState>()
     val superheroState: LiveData<SuperheroState> = _superheroState
 
     private val allSuperheroes = generateSuperheroes()
+    private val allEnemies = generateEnemies()
     private val allLocations = generateLocations()
 
-    // Clase que representa el estado de la UI
     data class SuperheroState(
         val superhero: Superhero? = null,
         val friends: List<String> = emptyList(),
@@ -29,10 +33,13 @@ class SuperheroViewModel : ViewModel() {
     )
 
     fun loadSuperheroes() {
-        _superheroes.value = generateSuperheroes()
+        _superheroes.value = allSuperheroes
     }
 
-    // Función para cargar los datos de un superhéroe específico
+    fun loadEnemies() {
+        _enemies.value = allEnemies
+    }
+
     fun loadSuperhero(superhero: Superhero) {
         val friends = superhero.friends.map { getSuperheroNameById(it) }
         val locations = superhero.locations.map { getLocationNameById(it) }
@@ -47,17 +54,14 @@ class SuperheroViewModel : ViewModel() {
         )
     }
 
-    // Función para obtener el nombre del superhéroe por su ID
     private fun getSuperheroNameById(id: Int): String {
         return allSuperheroes.find { it.id == id }?.name ?: "Unknown Superhero"
     }
 
-    // Función para obtener el nombre de la ubicación por su ID
     private fun getLocationNameById(id: Int): String {
         return allLocations.find { it.id == id }?.name ?: "Unknown Location"
     }
 
-    // Función para obtener el nombre del poder por su ID
     private fun getPowerNameById(id: Int): String {
         return when (id) {
             1 -> "Flight"
