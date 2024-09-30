@@ -13,4 +13,6 @@
     <string name="enemy_name">Enemy Name</string>
     <string name="main_enemy">Main Enemy:</string>
     <string name="power_1_n_power_2_n_power_3">- Power 1\n- Power 2\n- Power 3</string>
+    <string name="enemy_img_description">Enemy Image</string>
+    <string name="details">Details</string>
 </resources>

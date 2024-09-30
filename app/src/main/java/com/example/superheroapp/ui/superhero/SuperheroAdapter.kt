@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 class SuperheroAdapter @Inject constructor(
     private val onDetailsClick: (Superhero) -> Unit,
-    private val onEnemiesClick: (List<Enemy>) -> Unit,
 ) : ListAdapter<Superhero, SuperheroViewHolder>(SuperheroDiffCallback()) {
 
     private var enemyList: List<Enemy> = emptyList()

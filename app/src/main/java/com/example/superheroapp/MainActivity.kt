@@ -31,11 +31,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, SuperheroDetailsActivity::class.java)
                 intent.putExtra("superhero", superhero)
                 startActivity(intent)
-            },
-            onEnemiesClick = { enemies ->
-                val intent = Intent(this, EnemyListActivity::class.java)
-                intent.putExtra("enemies", ArrayList(enemies))
-                startActivity(intent)
             }
         )
 
